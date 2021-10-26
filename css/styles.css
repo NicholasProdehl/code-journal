@@ -1,0 +1,80 @@
+body {
+  background-color: #f0f0f0;
+  font-family: 'Cabin', sans-serif;
+  font-size: 16px;
+}
+
+header,
+.new-entry {
+  font-family: 'Nunito', sans-serif;
+}
+
+.new-entry {
+  font-weight: 900;
+}
+
+header {
+  color: white;
+  background-color: #502d7d;
+  font-size: 10px;
+}
+
+.header {
+  font-weight: lighter;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+input {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  width: 100%;
+  border-color: darkgrey;
+  height: 40px;
+  border-width: 1px;
+  border-radius: 4px;
+  border-style: solid;
+  font-size: 20px;
+}
+
+textarea {
+  width: 100%;
+  border-color: darkgrey;
+  border-width: 1px;
+  border-radius: 4px;
+  border-style: solid;
+  font-size: 20px;
+}
+
+textarea:focus,
+input:focus {
+  border: 2px solid #502d7d;
+  outline: none;
+}
+
+#title {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.submit-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit {
+  background-color: #502d7d;
+  color: white;
+  width: 80px;
+}
+
+.notes-container {
+  margin-top: 25px;
+}
+
+#notes {
+  margin-top: 15px;
+}
