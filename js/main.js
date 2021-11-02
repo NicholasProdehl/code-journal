@@ -34,8 +34,6 @@ $form.addEventListener('submit', handleSubmit);
 function handleEntries(entry) {
   var $listItem = document.createElement('li');
   $listItem.setAttribute('class', 'row');
-  var $ul = document.querySelector('ul');
-  $ul.prepend($listItem);
   var $imgColumn = document.createElement('div');
   $imgColumn.setAttribute('class', 'column-half');
   $listItem.appendChild($imgColumn);
@@ -54,6 +52,7 @@ function handleEntries(entry) {
   $pNotes.setAttribute('class', 'notes');
   $pNotes.textContent = entry.notes;
   $textColumn.appendChild($pNotes);
+  return $listItem;
 }
 
 function entriesLoop() {
@@ -61,7 +60,9 @@ function entriesLoop() {
   for (var i = 0; i < length; i++) {
     handleEntries(data.entries[i]);
     if (data.view === 'entries') {
-      handleEntriesTag();
+      var $ul = document.querySelector('ul');
+
+      $ul.prepend(handleEntries());
     }
 
   }
