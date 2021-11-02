@@ -13,11 +13,55 @@
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Cabin|Roboto:400,700|Roboto+Condensed:400,700" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
+    <div class="container">
+      <div class="row">
+        <div class="column-full">
+          <h1 class="header">Code Journal</h1>
+        </div>
+      </div>
+    </div>
   </header>
   <main>
+    <div class="container">
+      <div data-view="entry-form">
+        <form>
+          <div class="row">
+            <div class="column-full">
+              <h1 class="new-entry">New Entry</h1>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-half">
+              <img src="images/placeholder-image-square.jpg" alt="Placeholder"><br>
+            </div>
+            <div class="column-half">
+              <label for="title">Title</label><br>
+              <input type="text" id="title" name="title" required><br>
+              <label class="photo-url" for="photoUrl">Photo URL</label><br>
+              <input type="text" id="photoUrl" name="photoUrl" required><br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="column-full">
+              <div class="notes-container">
+                <label for="notes">Notes</label><br>
+                <textarea rows="6" id="notes" name="notes" required></textarea><br>
+              </div>
+              <div class="submit-container">
+                <input type="submit" value="SAVE" class="submit">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
