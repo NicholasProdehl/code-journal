@@ -2,6 +2,7 @@
 /* exported data */
 var $photoURL = document.querySelector('#photoUrl');
 var $img = document.querySelector('img');
+var $ul = document.querySelector('ul');
 function handlePhoto(event) {
   $img.setAttribute('src', event.target.value);
 }
@@ -21,7 +22,7 @@ function handleSubmit(event) {
   dataObj.photoUrl = event.target.photoUrl.value;
   dataObj.notes = event.target.notes.value;
   dataObj.entryId = data.nextEntryId;
-  handleEntries(dataObj);
+  $ul.prepend(handleEntries(dataObj));
   handleEntriesTag();
   data.entries.push(dataObj);
   data.nextEntryId++;
@@ -34,8 +35,6 @@ $form.addEventListener('submit', handleSubmit);
 function handleEntries(entry) {
   var $listItem = document.createElement('li');
   $listItem.setAttribute('class', 'row');
-  var $ul = document.querySelector('ul');
-  $ul.prepend($listItem);
   var $imgColumn = document.createElement('div');
   $imgColumn.setAttribute('class', 'column-half');
   $listItem.appendChild($imgColumn);
@@ -54,12 +53,13 @@ function handleEntries(entry) {
   $pNotes.setAttribute('class', 'notes');
   $pNotes.textContent = entry.notes;
   $textColumn.appendChild($pNotes);
+  return $listItem;
 }
 
 function entriesLoop() {
   var length = data.entries.length;
   for (var i = 0; i < length; i++) {
-    handleEntries(data.entries[i]);
+    $ul.prepend(handleEntries(data.entries[i]));
     if (data.view === 'entries') {
       handleEntriesTag();
     }
@@ -86,14 +86,3 @@ function handleEntryForm(event) {
   $temp2.className = '';
 }
 $entryForm.addEventListener('click', handleEntryForm);
-
-function handleUnload(event) {
-  if (document.querySelector('[data-view="entries"]').className === '') {
-    data.view = 'entries';
-  } else {
-    data.view = 'entry-form';
-  }
-  var dataStored = JSON.stringify(data);
-  localStorage.setItem('coding-journal', dataStored);
-}
-window.addEventListener('beforeunload', handleUnload);
