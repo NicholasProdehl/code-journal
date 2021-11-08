@@ -45,10 +45,15 @@ function handleEntries(entry) {
   var $textColumn = document.createElement('div');
   $textColumn.setAttribute('class', 'column-half');
   $listItem.appendChild($textColumn);
+  var $topContainer = document.createElement('div');
+  $textColumn.appendChild($topContainer);
   var $pTitle = document.createElement('p');
   $pTitle.setAttribute('class', 'title');
   $pTitle.textContent = entry.title;
-  $textColumn.appendChild($pTitle);
+  $topContainer.appendChild($pTitle);
+  var $editIcon = document.createElement('i');
+  $editIcon.setAttribute('class', 'fas fa-pencil-alt');
+  $topContainer.appendChild($editIcon);
   var $pNotes = document.createElement('p');
   $pNotes.setAttribute('class', 'notes');
   $pNotes.textContent = entry.notes;
@@ -59,11 +64,10 @@ function handleEntries(entry) {
 function entriesLoop() {
   var length = data.entries.length;
   for (var i = 0; i < length; i++) {
+    var $ul = document.querySelector('ul');
     $ul.prepend(handleEntries(data.entries[i]));
     if (data.view === 'entries') {
-      var $ul = document.querySelector('ul');
-
-      $ul.prepend(handleEntries());
+      handleEntriesTag();
     }
 
   }
